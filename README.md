@@ -46,7 +46,7 @@ This project demonstrates the use of **Random Forest Regression** to predict cro
 2. **Results Page (`results.html`)**:
    - Displays the model evaluation metrics (R², MSE).
    - Shows the scatter plot of actual vs. predicted values.
-   - Lists the predicted prices for user reference.
+   - Produces a chart with the predicted prices.
 
 ## Features
 - **File Upload**: Upload CSV files containing crop-related data.
