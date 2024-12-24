@@ -11,18 +11,18 @@ import json
 app = Flask(__name__)
 
 # Folder to save uploaded files
-UPLOAD_FOLDER = os.path.join('static', 'uploads')  # This is used for uploaded files only
+UPLOAD_FOLDER = os.path.join('static', 'uploads')  
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Folder for saving plot images
-PLOT_FOLDER = os.path.join('static', 'images')  # This is where the plot image will go
+PLOT_FOLDER = os.path.join('static', 'images')  
 os.makedirs(PLOT_FOLDER, exist_ok=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_and_run_ml():
     if request.method == 'POST':
-        # Check if the file is uploaded
+       
         if 'file' not in request.files or request.files['file'].filename == '':
             return render_template('index.html', error="No file selected.")
         
@@ -71,9 +71,9 @@ def upload_and_run_ml():
         plt.savefig(plot_path)
         plt.close()
 
-        print(f"Scatter plot saved at: {plot_path}")  # Debug log
+        print(f"Scatter plot saved at: {plot_path}")  
 
-        # Pass predicted prices to the result page
+        
         predicted_prices_list = predicted_prices.tolist()
 
         # Render results page
@@ -81,8 +81,8 @@ def upload_and_run_ml():
             'results.html',
             r_squared=r_squared,
             mse=mse,
-            plot_image=f'images/{plot_filename}',  # Ensure the path is correct
-            predicted_prices=json.dumps(predicted_prices_list)  # Pass as JSON
+            plot_image=f'images/{plot_filename}', 
+            predicted_prices=json.dumps(predicted_prices_list)  
         )
     return render_template('index.html')
 
