@@ -6,12 +6,11 @@ This project demonstrates the use of **Random Forest Regression** to predict cro
 
 ### Backend (Flask and Machine Learning):
 1. **File Upload Handling**:
-   - Users upload their crop dataset through a simple HTML form.
+   - Users upload their crop dataset through the HTML form.
    - The uploaded file is saved to the `static/uploads/` directory.
 
 2. **Data Validation**:
    - The application checks the dataset for required columns: `Month`, `Year`, `Rainfall`, and `WPI`.
-   - If the dataset does not meet these requirements, an error message is displayed.
 
 3. **Data Preprocessing**:
    - The features (`Month`, `Year`, `Rainfall`) are extracted as inputs for the model.
