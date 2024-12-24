@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.metrics, .plot, .predictions {
+    margin-bottom: 20px;
+}
+
+.metrics p, .predictions ul {
+    font-size: 1.2em;
+}
+
+.predictions ul {
+    list-style: none;
+}
+
+.predictions li {
+    background-color: #e2e2e2;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.plot img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background-color: #45a049;
+}

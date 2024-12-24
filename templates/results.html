@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Include Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Learning Model Results</h1>
+        
+        <div class="metrics">
+            <h2>Model Evaluation Metrics</h2>
+            <p><strong>R-squared:</strong> {{ r_squared }}</p>
+            <p><strong>Mean Squared Error (MSE):</strong> {{ mse }}</p>
+        </div>
+
+        <div class="plot">
+            <h2>Actual vs Predicted Scatter Plot</h2>
+            <img src="{{ url_for('static', filename=plot_image) }}" alt="Scatter Plot">
+        </div>
+
+        <!-- Table for displaying predicted prices -->
+        <div class="predictions">
+            
+        </div>
+
+        <!-- Chart.js container -->
+        <div class="chart-container">
+            <h2>Predicted Prices (WPI) Chart</h2>
+            <canvas id="predictedChart"></canvas>
+        </div>
+
+        <a href="/" class="back-btn">Go Back</a>
+    </div>
+
+    <script>
+        // Get predicted prices data from Flask
+        const predictedPrices = {{ predicted_prices | safe }};
+
+        // Create Chart.js chart
+        const ctx = document.getElementById('predictedChart').getContext('2d');
+        const predictedChart = new Chart(ctx, {
+            type: 'line',  // Change to 'bar' if you want a bar chart
+            data: {
+                labels: Array.from({length: predictedPrices.length}, (_, i) => i + 1),  // X-axis labels (1, 2, 3,...)
+                datasets: [{
+                    label: 'Predicted WPI',
+                    data: predictedPrices,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
