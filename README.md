@@ -36,7 +36,7 @@ This project demonstrates the use of **Random Forest Regression** to predict cro
      - The R² score.
      - The Mean Squared Error.
      - The scatter plot of actual vs. predicted values.
-     - A list of predicted prices.
+     - A chart of predicted prices.
 
 ### Frontend (HTML Templates):
 1. **Index Page (`index.html`)**:
